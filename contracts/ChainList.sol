@@ -13,7 +13,7 @@ contract ChainList is Ownable {
         string description;
         uint256 price;  // um tipo de inteiro em 256 bits
     }
-    
+
     // state variables
 
     mapping (uint => Article) public articles; // criara uma lista de Article s
@@ -45,7 +45,7 @@ contract ChainList is Ownable {
             _price
         );
         
-        LogSellArticle(articleCounter, msg.sender, _name, _price);
+        emit LogSellArticle(articleCounter, msg.sender, _name, _price);
     }
     // to get an article - deprecated 
         // function getArticle() public view returns (address _seller,address _buyer, string _name, string _description, uint _price) {
@@ -110,7 +110,7 @@ contract ChainList is Ownable {
         article.seller.transfer(msg.value);
 
         // trigger the event
-        LogBuyArticle(_id, article.seller, article.buyer, article.name, article.price);
+        emit LogBuyArticle(_id, article.seller, article.buyer, article.name, article.price);
     } 
     // deactivate the contract
     function kill() public onlyOwner { 
