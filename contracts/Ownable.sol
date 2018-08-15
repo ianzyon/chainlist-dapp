@@ -12,7 +12,7 @@ contract Ownable {
     }
 
     // constructor
-    constructor() public {
+    function Ownable() public {
         owner = msg.sender;
     }
 

@@ -45,7 +45,7 @@ contract ChainList is Ownable {
             _price
         );
         
-        emit LogSellArticle(articleCounter, msg.sender, _name, _price);
+        LogSellArticle(articleCounter, msg.sender, _name, _price);
     }
     // to get an article - deprecated 
         // function getArticle() public view returns (address _seller,address _buyer, string _name, string _description, uint _price) {
@@ -110,7 +110,7 @@ contract ChainList is Ownable {
         article.seller.transfer(msg.value);
 
         // trigger the event
-        emit LogBuyArticle(_id, article.seller, article.buyer, article.name, article.price);
+        LogBuyArticle(_id, article.seller, article.buyer, article.name, article.price);
     } 
     // deactivate the contract
     function kill() public onlyOwner { 
